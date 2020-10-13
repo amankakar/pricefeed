@@ -1,0 +1,25 @@
+{
+  "name": "pricefeed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "marketcap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amankakar/pricefeed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amankakar/pricefeed/issues"
+  },
+  "homepage": "https://github.com/amankakar/pricefeed#readme",
+  "dependencies": {
+    "coinmarketcap-api": "^3.1.1",
+    "node-coinmarketcap-rest-api": "^0.2.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
