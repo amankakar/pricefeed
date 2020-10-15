@@ -1,25 +1,44 @@
-'use strict'; // jshint ignore:line
 
-// jshint esversion: 6
-/* globals require: true, __dirname: true, setInterval: true, console: true, module: true */
-const apiKey = '1b5c72ad-5c44-4c8d-80fb-e76d19653230';
 
-var CoinMarketCap = require('node-coinmarketcap-rest-api');
-var coinmarketcap = new CoinMarketCap();
-// If you want to check a single coin, use get() (You need to supply the coinmarketcap id of the cryptocurrency, not the symbol)
-// If you want to use symbols instead of id, use multi.
-coinmarketcap.getTicker(['1'], coin => {
-  console.log(coin.price_usd); // Prints the price in USD of BTC at the moment.
-});
-// If you want to check multiple coins, use multi():
-coinmarketcap.getAllTickers(coins => {
-  console.log(coins.get('BTC').price_usd); // Prints price of BTC in USD
-  console.log(coins.get('ETH').price_usd); // Print price of ETH in USD
-  console.log(coins.get('ETH').price_btc); // Print price of ETH in BTC
-  console.log(coins.getTop(10)); // Prints information about top 10 cryptocurrencies
-});
+const rp = require("request-promise");
 
-// Get Global Market Data
-coinmarketcap.getGlobalData( (globalData) => {
-    console.log(globalData);
-});
+
+const requestOptions = {
+    method: "GET",
+    uri:
+        "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=DJAI&apikey=4Z5GR4N13XXO38FV",
+    json: true,
+    gzip: true,
+  };
+  
+  const request2 = {
+    method: "GET",
+    uri:
+"    https://financialmodelingprep.com/api/v3/historical-chart/1min/%5EDJI?apikey=892606eba02da218453d6ad7c775cc7c",    json: true,
+    gzip: true,
+
+  }
+  async function resolve_promises() {
+
+    let financialmodelingprep = () => {
+      return new Promise(async function (resolve, reject) {
+        Promise.resolve(rp(request2)).then(async (response) => {
+          return resolve(JSON.stringify(response));
+        });
+      });
+    };
+    
+
+let financial = JSON.parse(await financialmodelingprep());
+
+console.log(
+    "financialmodelingprep::",
+    financial[0],
+  //   "\ncrypto_compair::",
+  //   await crypto_compair()
+  );
+  
+  }
+
+
+resolve_promises();
