@@ -11,34 +11,52 @@ const requestOptions = {
     gzip: true,
   };
   
-  const request2 = {
-    method: "GET",
-    uri:
-"    https://financialmodelingprep.com/api/v3/historical-chart/1min/%5EDJI?apikey=892606eba02da218453d6ad7c775cc7c",    json: true,
-    gzip: true,
+  const request3= {
+    method: 'POST',
+    uri: 'https://finnhub.io/api/v1/webhook/add?token=bu4ia8n48v6p8t6gib00',
+    body: {
+      event: 'earnings', symbol: 'AAPL'   
+     },
+    json: true // Automatically parses the JSON string in the response
 
   }
   async function resolve_promises() {
 
     let financialmodelingprep = () => {
       return new Promise(async function (resolve, reject) {
-        Promise.resolve(rp(request2)).then(async (response) => {
+        Promise.resolve(rp(requestOptions)).then(async (response) => {
           return resolve(JSON.stringify(response));
         });
       });
     };
+      let funhub = ()=>{
+        return new Promise(async function (resolve, reject) {
+          Promise.resolve(rp(request3)).then(async (response) => {
+            return resolve(JSON.stringify(response));
+          });
+        });
+  
+      
+
+    };
     
 
-let financial = JSON.parse(await financialmodelingprep());
+//     r = requests.post('', json={})
+// res = r.json()
+// print(res)
 
-console.log(
-    "financialmodelingprep::",
-    financial[0],
-  //   "\ncrypto_compair::",
-  //   await crypto_compair()
-  );
+
+
+    let financial = JSON.parse(await financialmodelingprep());
+    let json = await funhub();
+    console.log(
+        "financialmodelingprep::",
+        financial[0],
+        "\ncrypto_compair::",
+        json
+      );
   
-  }
+}
 
 
 resolve_promises();

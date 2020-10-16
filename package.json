@@ -18,6 +18,11 @@
   "homepage": "https://github.com/amankakar/pricefeed#readme",
   "dependencies": {
     "coinmarketcap-api": "^3.1.1",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "express": "^4.17.1",
+    "finnhub": "^1.2.1",
+    "iexcloud_api_wrapper": "^1.1.5",
     "node-coinmarketcap-rest-api": "^0.2.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
