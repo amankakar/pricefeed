@@ -26,7 +26,7 @@ var options = {
 //     header :{
 //         'Accept': 'text/event-stream'
 //     }
-}
+// }
 function callback(error, response, body) {
     console.log(response)
     if (!error && response.statusCode === 200) {
