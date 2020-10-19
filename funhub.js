@@ -2,18 +2,18 @@ const finnhub = require('finnhub');
 var fs = require('fs');
 const  iex = require( 'iexcloud_api_wrapper' )
 
-const quote = async (sym) => {
-    const quoteData = await iex.quote(sym);
-    // do something with returned quote data
-    console.log(quoteData)
-};
-quote("DJGI");
+// const quote = async (sym) => {
+//     const quoteData = await iex.quote(sym);
+//     // do something with returned quote data
+//     console.log(quoteData)
+// };
+// quote("GJ");
 
-
+// marketstack = df558cce41424cb149e25a4898b79c20;
 var crypto = require('crypto-js');
-var IEX = 'Tsk_f609c4b2874e46a8b4638b28bd665844';
-var public_key = '294d945c734f82bf5cadc9c7ad44a2172a4b9e23';
-var ticker_btcusd_url = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD';
+// var IEX = 'Tsk_f609c4b2874e46a8b4638b28bd665844';
+// var public_key = '294d945c734f82bf5cadc9c7ad44a2172a4b9e23';
+// var ticker_btcusd_url = 'https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD';
 
 var request = require('request');
 var options = {
@@ -21,11 +21,11 @@ var options = {
     
 };
 
-var option2 = {
-    url : "https://cloud.iexapis.com/stable/tops?token=sk_da1ffc4604eb4fe9b90fb147bb37d9ef&symbols=djai"    ,
-    header :{
-        'Accept': 'text/event-stream'
-    }
+// var option2 = {
+//     url : "https://cloud.iexapis.com/stable/tops?token=sk_da1ffc4604eb4fe9b90fb147bb37d9ef&symbols=djai"    ,
+//     header :{
+//         'Accept': 'text/event-stream'
+//     }
 }
 function callback(error, response, body) {
     console.log(response)
@@ -34,5 +34,5 @@ function callback(error, response, body) {
     }
 }
 
-// request(option2, callback)
+request(options, callback)
 
